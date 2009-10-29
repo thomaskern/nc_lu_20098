@@ -1,0 +1,16 @@
+function [ w ] = percTrain( X,t,maxIts )
+
+scale = 2;
+w = zeros(size(X,2));
+display(size(w));
+for i=1:maxIts;
+    for z=1:size(X,1)
+        if perc(w,X(z)) <= t(z)        
+            w = w + scale * X(z) * t(z)
+        end
+    end
+    
+end
+
+end
+

@@ -1,0 +1,1727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en">
+  
+    
+    
+    
+    
+    
+
+  
+
+  <head>
+
+    <meta http-equiv="Content-Type"
+          content="text/html;charset=utf-8" />
+
+    
+      <base href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/daten-fur-aufgabe-1-hinweise" /><!--[if lt IE 7]></base><![endif]-->
+    
+
+    <meta name="generator" content="Plone - http://plone.org" />
+
+    <link rel="kss-base-url" href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/daten-fur-aufgabe-1-hinweise" />
+
+  
+  
+    
+      <script type="text/javascript"
+              src="http://www.prip.tuwien.ac.at/portal_javascripts/PRIPStyle/event-registration-cachekey7040.js">
+      </script>
+    
+    
+  
+
+  
+    
+      <script type="text/javascript"
+              src="http://www.prip.tuwien.ac.at/portal_javascripts/PRIPStyle/ie5fixes-cachekey2515.js">
+      </script>
+    
+    
+  
+
+  
+    
+      <script type="text/javascript"
+              src="http://www.prip.tuwien.ac.at/portal_javascripts/PRIPStyle/mark_special_links-cachekey5446.js">
+      </script>
+    
+    
+  
+
+  
+    
+      <script type="text/javascript"
+              src="http://www.prip.tuwien.ac.at/portal_javascripts/PRIPStyle/input-label-cachekey7249.js">
+      </script>
+    
+    
+  
+
+  
+  
+    
+    
+      <style type="text/css"><!-- @import url(http://www.prip.tuwien.ac.at/portal_css/PRIPStyle/base-cachekey3930.css); --></style>
+    
+    
+  
+
+  
+  <link rel="kinetic-stylesheet" type="text/css"
+        href="http://www.prip.tuwien.ac.at/portal_kss/PRIPStyle/at-cachekey0490.kss" />
+
+
+<title>Daten für Aufgabe 1: Hinweise &mdash; Pattern Recognition and Image Processing (PRIP) Group</title>
+
+
+    <!-- Internet Explorer CSS Fixes -->
+    <!--[if IE]>
+        <style type="text/css" media="all">@import url(http://www.prip.tuwien.ac.at/IEFixes.css);</style>
+    <![endif]-->
+
+    
+    <link rel="author"
+          href="http://www.prip.tuwien.ac.at/author/rei"
+          title="Author information" />
+
+
+    <link rel="shortcut icon" type="image/x-icon"
+          href="http://www.prip.tuwien.ac.at/favicon.ico" />
+
+
+    <link rel="home" href="http://www.prip.tuwien.ac.at"
+          title="Front page" />
+
+    <link rel="contents"
+          href="http://www.prip.tuwien.ac.at/sitemap"
+          title="Site Map" />
+
+
+
+
+    <link rel="search"
+          href="http://www.prip.tuwien.ac.at/search_form"
+          title="Search this site" />
+
+
+    
+
+    <!-- Disable IE6 image toolbar -->
+    <meta http-equiv="imagetoolbar" content="no" />
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+  </head>
+
+  <body class="section-teaching template-document_view"
+        dir="ltr">
+    <div id="visual-portal-wrapper">
+      <div id="portal-top">
+        <div id="portal-header">
+ 
+<map name="head_image_map">
+	<area shape="rect" href="http://www.informatik.tuwien.ac.at/" coords="56,13,110,67" alt="Faculty of Informatics" target="_blank">
+	<area shape="rect" href="http://www.tuwien.ac.at/" coords="115,13,169,67" alt="Vienna University of Technology" target="_blank">
+	<area shape="rect" href="http://automation.tuwien.ac.at/" coords="176,13,264,68" alt="Institute of Computer Aided Automation" target="_blank">
+	<area shape="rect" href="http://www.prip.tuwien.ac.at"
+       coords="704,6,799,58" alt="PRIP Home">
+	<area shape="rect" href="http://www.prip.tuwien.ac.at"
+       coords="512,70,796,119" alt="PRIP Home">
+</map>
+<img src="bgbanner_prip.gif" alt="" usemap="#head_image_map" width="800" height="125">
+
+
+</div>
+
+<div id="portal-personaltools-wrapper">
+
+<h5 class="hiddenStructure">Personal tools</h5>
+
+
+</div>
+
+
+    
+
+<div id="portal-breadcrumbs">
+
+    <span id="breadcrumbs-you-are-here">You
+are here:</span>
+    <a href="http://www.prip.tuwien.ac.at">Home</a>
+    <span class="breadcrumbSeparator">
+        &rarr;
+        
+    </span>
+    <span dir="ltr">
+        
+            <a href="http://www.prip.tuwien.ac.at/teaching">Teaching</a>
+            <span class="breadcrumbSeparator">
+                &rarr;
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            <a href="http://www.prip.tuwien.ac.at/teaching/ws">Wintersemester (WS)</a>
+            <span class="breadcrumbSeparator">
+                &rarr;
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation">NC</a>
+            <span class="breadcrumbSeparator">
+                &rarr;
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1">Daten für Aufgabe 1</a>
+            <span class="breadcrumbSeparator">
+                &rarr;
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            
+            
+            <span>Daten für Aufgabe 1: Hinweise</span>
+         
+    </span>
+
+</div>
+
+      </div>
+ 
+
+      <div class="visualClear" id="clear-space-before-wrapper-table"><!-- --></div>
+
+      <table id="portal-columns">
+        <tbody>
+          <tr>
+            
+            <td id="portal-column-one">
+              <div class="visualPadding">
+                
+                  
+<div id="portletwrapper-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f505249500a6e617669676174696f6e"
+     class="portletWrapper kssattr-portlethash-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f505249500a6e617669676174696f6e">
+<dl class="portlet portletNavigationTree">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://www.prip.tuwien.ac.at/sitemap"
+           class="tile">Navigation</a>
+       
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem lastItem">
+        <ul class="portletNavigationTree navTreeLevel0">
+            <li class="navTreeItem">
+                <div>
+                   <a href="http://www.prip.tuwien.ac.at"
+                      class="" title="">
+                   Home
+                   
+                   </a>
+                </div>
+            </li>
+            
+
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/people"
+           class="state-published navTreeFolderish"
+           title="Container for PRIP members' home directories">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Large Plone Folder" />
+            <span>People</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/research"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Research</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching"
+           class="state-published navTreeItemInPath navTreeFolderish"
+           title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Teaching</span>
+        </a>
+        
+    </div>
+
+    <ul class="navTree navTreeLevel1">  
+        
+
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/stundenplan/"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/link_icon.gif" alt="Link" />
+            <span>Stundenplan WS 2009/10</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ss"
+           class="state-published navTreeFolderish"
+           title="Lehrveranstaltungen im Sommersemester">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Sommersemester (SS)</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws"
+           class="state-published navTreeItemInPath navTreeFolderish"
+           title="Lehrveranstaltungen im Wintersemester">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Wintersemester (WS)</span>
+        </a>
+        
+    </div>
+
+    <ul class="navTree navTreeLevel2">  
+        
+
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/stundenplan"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Stundenplan WS 2009/10</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/AKME"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>AKME</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/anwendungen-der-bildverarbeitung"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>AIP</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/bildverstehen-image-understanding"
+           class="state-published navTreeFolderish"
+           title="Webpage of the Bildverstehen course">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>BV</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/digital-image-processing-with-remote-sensing-applications"
+           class="state-published"
+           title="Digital Image Processing with Remote Sensing Applications">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/pripteachingcourse_icon.gif" alt="PRIPTeachingCourse" />
+            <span>DIPRSA</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/diplomanden-dissertantenseminar-1"
+           class="state-published navTreeFolderish"
+           title="Diplomanden-/ Dissertantenseminar">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>DiplDiss</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/einfuhrung-in-das-programmieren"
+           class="state-published navTreeFolderish"
+           title="Vorlesung mit Laborübung">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>EPROG</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/grundlagen-der-digitalen-bildverarbeitung"
+           class="state-published navTreeFolderish"
+           title="Grundlagen der digitalen Bildverarbeitung">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>GDBV</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/grundlagen-des-methodischen-arbeitens"
+           class="state-published navTreeFolderish"
+           title="Grundlagen des methodischen Arbeitens">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>GMA</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation"
+           class="state-published navTreeItemInPath navTreeFolderish"
+           title="Neural Computation">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>NC</span>
+        </a>
+        
+    </div>
+
+    <ul class="navTree navTreeLevel3">  
+        
+
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/neural-computation-1"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/pripteachingcourse_icon.gif" alt="PRIPTeachingCourse" />
+            <span>Neural Computation LU1</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/Gruppeneinteilung.pdf/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/pdf_icon.gif" alt="File" />
+            <span>Gruppeneinteilung</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/neural-computation-vo2"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/pripteachingcourse_icon.gif" alt="PRIPTeachingCourse" />
+            <span>Neural Computation VO2</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/aufgabe1.pdf/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/pdf_icon.gif" alt="File" />
+            <span>Aufgabe 1 (Laborübung)</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeItemInPath navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1"
+           class="state-published navTreeItemInPath navTreeFolderish"
+           title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Daten für Aufgabe 1</span>
+        </a>
+        
+    </div>
+
+    <ul class="navTree navTreeLevel4">  
+        
+
+
+
+<li class="navTreeItem visualNoMarker navTreeCurrentNode">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/daten-fur-aufgabe-1-hinweise"
+           class="state-published navTreeCurrentItem navTreeCurrentNode"
+           title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/document_icon.gif" alt="Document" />
+            <span>Daten für Aufgabe 1: Hinweise</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr1.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr1.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr2.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr2.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr3.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr3.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr4.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr4.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr5.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr5.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr6.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr6.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr7.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr7.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr8.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr8.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr9.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr9.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr10.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr10.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr11.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr11.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr12.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr12.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr13.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr13.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr14.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr14.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr15.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr15.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr16.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr16.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr17.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr17.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr18.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr18.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr19.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr19.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr20.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr20.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr21.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr21.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr22.txt/view"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/txt.png" alt="File" />
+            <span>data_Gr22.txt</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/links"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/document_icon.gif" alt="Document" />
+            <span>Links</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/programmieren-von-bildverarbeitungssystemen"
+           class="state-published navTreeFolderish"
+           title="Programmieren von Bildverarbeitungssystemen">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>ProgBVS</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/scientific-presentation-and-communication"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>SPCom</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/seminar-mit-bachelorarbeit"
+           class="state-published" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/pripteachingcourse_icon.gif" alt="PRIPTeachingCourse" />
+            <span>Seminar (mit Bachelorarbeit)</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/seminar-aus-bildverarbeitung-und-mustererkennung"
+           class="state-published"
+           title="Seminar aus Bildverarbeitung und Mustererkennung, 
+Seminar aus Medieninformatik
+Seminar aus medizinischer Informatik">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/pripteachingcourse_icon.gif" alt="PRIPTeachingCourse" />
+            <span>Seminar</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/StME"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>StME</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/oprocv-1"
+           class="state-published navTreeFolderish"
+           title="open Problems in Computer Vision">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>oProCV</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/informatikpraktika"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Informatikpraktika</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/Exchange%20program"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>International Exchange Programs</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/prip-preis"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>PRIP Preis</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/teaching/prip-talks"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>PRIP-Talks</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/services"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Services</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/events"
+           class="state-published navTreeFolderish"
+           title="Site Events">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/topic_icon.gif" alt="Topic" />
+            <span>Events</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker navTreeFolderish">
+
+    
+
+      <div>
+
+        <a href="http://www.prip.tuwien.ac.at/contact"
+           class="state-published navTreeFolderish" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/folder_icon.gif" alt="Folder" />
+            <span>Contact</span>
+        </a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+
+
+        </ul>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+</div>
+
+<div id="portletwrapper-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f505249500a6576656e7473"
+     class="portletWrapper kssattr-portlethash-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f505249500a6576656e7473"><dl class="portlet portletEvents">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://www.prip.tuwien.ac.at/events"
+           class="tile">
+            Upcoming Events
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    
+    <dd class="portletItem odd">
+        <a href="http://www.prip.tuwien.ac.at/teaching/ws/diplomanden-dissertantenseminar-1/dipldiss-seminar"
+           class="tile" title="">
+            <img width="16" height="16" src="http://www.prip.tuwien.ac.at/event_icon.gif" alt="Event" />
+            DiplDiss Seminar
+            <span class="portletItemDetails">
+                
+                    Sem 183/2, <br />
+                
+                Oct 30, 2009
+            </span>
+        </a>
+    </dd>
+    
+
+    <dd class="portletFooter">
+        <a href="http://www.prip.tuwien.ac.at/events/previous"
+           class="tile">
+            <span>
+                Previous events&hellip;
+            </span>
+        </a>
+    </dd>
+
+    <dd class="portletFooter">
+        <a href="http://www.prip.tuwien.ac.at/events"
+           class="tile">
+                Upcoming events&hellip;
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+</div>
+
+
+<div class="managePortletsLink">
+  
+</div>
+
+                
+                &nbsp;
+              </div>
+              <div id="portal-searchbox">
+    <form name="searchform"
+          action="http://www.prip.tuwien.ac.at/search">
+
+        <label for="searchGadget" class="hiddenStructure">Search Site</label>
+
+        <div class="LSBox">
+        <input name="SearchableText" type="text" size="15"
+               title="Search Site" accesskey="4"
+               class="inputLabel" id="searchGadget" />
+
+        <input class="searchButton" type="submit"
+               value="Search" />
+    
+        <div class="searchSection">
+            <input id="searchbox_currentfolder_only"
+                   type="checkbox" name="path"
+                   value="/PRIP/teaching/ws/neural-computation/daten-fur-aufgabe-1" />
+            <label for="searchbox_currentfolder_only"
+                   style="cursor: pointer">
+                only in current section
+            </label>
+        </div>
+
+        <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
+        </div>
+    </form>
+
+    <div id="portal-advanced-search" class="hiddenStructure">
+        <a href="http://www.prip.tuwien.ac.at/search_form"
+           accesskey="5">
+            Advanced Search&hellip;
+        </a>
+    </div>
+
+</div>
+            </td>
+            
+
+            
+            <td id="portal-column-content">
+
+              
+                <div class="">
+
+                  
+
+
+                  <div id="region-content" class="documentContent">
+
+                    <span id="contentTopLeft"></span>
+                    <span id="contentTopRight"></span>
+                    
+                    <a name="documentContent"></a>
+
+                    
+
+    <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
+        <dt>Info</dt>
+        <dd></dd>
+    </dl>
+
+
+                    
+                    <div id="viewlet-above-content"></div>
+
+                    
+                    
+                    <div id="content">
+                      
+                      
+    
+
+        
+
+        <h1 class="documentFirstHeading"> 
+            
+        <span class="" id="parent-fieldname-title">
+            Daten für Aufgabe 1: Hinweise
+        </span>
+    
+        </h1>
+
+        
+
+
+        <p class="documentDescription">
+            
+        <span class="" id="parent-fieldname-description">
+            
+        </span>
+    
+        </p>
+
+        
+
+
+
+        
+
+        
+        <div class="" id="parent-fieldname-text">
+            <p style="text-align: center;"><span style="text-align: left;">Daten zur Aufgabe 1.1: Die Spalten         1-3 sind zeilenweise Datenvektoren, Spalte 4 enthält das target         der         jeweiligen Zeile. Die Daten können mit dem Matlabbefehl <span style="font-family: courier new;">dlmread</span> eingelesen werden. </span></p>
+<div style="text-align: center;"><a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr1.txt">Gruppe 1</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr2.txt">Gruppe 2</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr3.txt"> Gruppe 3</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr4.txt"> Gruppe 4</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr5.txt">Gruppe 5</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr6.txt">Gruppe 6</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr7.txt">Gruppe 7</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr8.txt">Gruppe 8</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr9.txt">Gruppe 9</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr11.txt">Gruppe 11</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr12.txt">Gruppe 12</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr13.txt">Gruppe 13</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr14.txt">Gruppe 14</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr15.txt">Gruppe 15</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr16.txt">Gruppe 16</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr17.txt">Gruppe 17</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr18.txt">Gruppe 18</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr19.txt">Gruppe 19</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr20.txt">Gruppe 20</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr21.txt">Gruppe 21</a><br />
+<a href="http://www.prip.tuwien.ac.at/teaching/ws/neural-computation/daten-fur-aufgabe-1/data_Gr22.txt">Gruppe 22</a><br />
+</div>
+<br />
+Erstellen Sie bitte für die Abgabe mit dem trainierten weight - Vektor und ihrem perceptron-Simulator, ein Matlab Skript, das die Daten einliest, und klassifiziert.
+            
+        </div>
+    
+
+        <div class="relatedItems">
+    
+        
+            
+        
+    
+</div>
+    
+        <div class="visualClear"><!-- --></div>
+<div class="documentActions">
+    
+
+    
+
+</div>
+
+<div class="reviewHistory" id="review-history">
+    
+</div>
+
+
+    
+
+                    </div>
+                    
+
+                    
+                    
+                      
+    
+
+
+                    
+                    
+
+                    <span id="contentBottomLeft"></span>
+                    <span id="contentBottomRight"></span>
+
+                  </div>
+
+                </div>
+
+              
+            </td>
+            
+
+            
+            
+            
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <div class="visualClear" id="clear-space-before-footer"><!-- --></div>
+      
+      
+
+      
+
+        <div id="portal-footer">
+
+<div id="portal-footer">
+    <p>
+      <a href="http://www.prip.tuwien.ac.at">Home</a> &bull; 
+      <a href="http://www.prip.tuwien.ac.at/sitemap">Sitemap</a> &bull; 
+      <a href="http://www.prip.tuwien.ac.at/contact">Contact/Disclaimer</a> &bull; 
+      <a href="mailto:webmaster@prip.tuwien.ac.at">Webmaster</a> &ndash; 
+      Disclosure according to &sect; 25 Austrian "Mediengesetz": Owner of the website is the 
+      Vienna University of Technology, Faculty of Informatics, Institute of Computer Aided Automation, 
+      Pattern Recognition and Image Processing Group, Favoritenstr. 9/183-2, <nobr>A-1040 Vienna.</nobr>
+   </p>
+  </div>
+</div>
+
+  <div id="portal-colophon">
+      
+
+      
+
+      <div class="colophonWrapper">
+      <ul>
+        <li>
+          <a href="http://plone.org"
+             title="This site was built using Plone CMS, the Open Source Content Management System. Click for more information.">
+            Powered by Plone</a>
+        </li>
+        <li>
+          <a href="http://validator.w3.org/check/referer"
+             title="This site is valid XHTML.">
+            Valid XHTML</a>
+        </li>
+        <li>
+          <a href="http://jigsaw.w3.org/css-validator/check/referer&amp;warning=no&amp;profile=css3&amp;usermedium=all"
+             title="This site was built with valid CSS.">
+            Valid CSS</a>
+        </li>
+        <li>
+          <a href="http://www.section508.gov"
+             title="This site conforms to the US Government Section 508 Accessibility Guidelines.">
+            Section 508</a>
+        </li>
+        <li>
+          <a href="http://www.w3.org/WAI/WCAG1AA-Conformance"
+             title="This site conforms to the W3C-WAI Web Content Accessibility Guidelines.">
+            WCAG</a>
+        </li>
+      </ul>
+      </div>
+
+    </div>
+
+
+
+      
+
+      <div class="visualClear"><!-- --></div>
+    </div>
+</body>
+</html>
+
+
