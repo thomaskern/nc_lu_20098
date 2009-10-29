@@ -1,8 +1,0 @@
-function [  ] = percEval( )
-
-X = dlmread('data-Gr8.txt');
-
-percTrain(
-
-end
-

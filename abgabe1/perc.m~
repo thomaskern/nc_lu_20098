@@ -1,4 +1,0 @@
-function [ y ] = perc( w,x )
-for 
-end
-
