@@ -2,10 +2,10 @@ function [  ] = percRun( )
 
 X = dlmread('data-Gr8.txt');
 
-training_data = X(1:round(length(X)*0.8),1:4);
-eval_data = X(1:round(length(X) - length(training_data)),1:4);
+[weight, adata] = augData(X, 1, 1);
+[training_data, eval_data] = splitData(adata, 0.8);
 
-percTrain(training_data(1:50,1:3),training_data(1:50,4),100);
+percTrain(training_data(1:50,1:4),training_data(1:50,5),weight,150);
 percEval(eval_data);
 
 end
