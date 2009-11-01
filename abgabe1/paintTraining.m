@@ -13,7 +13,6 @@ end
 grid;
 axis equal;
 hold off;
-drawnow();
-% pause(0.1);
+drawnow(); % flushes event queque
 end
 
