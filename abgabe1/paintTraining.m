@@ -5,9 +5,9 @@ hold on;
 
 for j = 1:length(data)
     if target(j) == 1
-        plot(data(j,1), data(j,2),'ro');
+        plot(data(j,2), data(j,3),'ro');
     else
-        plot(data(j,1), data(j,2),'g+');
+        plot(data(j,2), data(j,3),'g+');
     end
 end
 grid;

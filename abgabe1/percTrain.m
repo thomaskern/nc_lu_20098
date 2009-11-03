@@ -8,7 +8,7 @@ gamma = 0.1; % learning rate
 for epoch=1:maxIts;
     miss = 0;% counts the miss classified samples per epoch
     for z=1:size(X,1)
-        if perc(w,X(z)) ~= t(z) 
+        if perc(w,X(z,:)) ~= t(z) 
             miss = miss + 1; 
             w = w + (gamma * X(z,:) * t(z))'; % adds 
         end
