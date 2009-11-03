@@ -1,1 +1,2 @@
-augment data
+n/2 rausgeben
+paintTraining auf 3 dimensionalen code aendern

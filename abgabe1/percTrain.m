@@ -16,7 +16,7 @@ for epoch=1:maxIts;
     if miss == 0
         break; % successfully classified every sample
     else        
-        paintTraining(X,t); % paints the screw up
+        paintTraining(X,t, w); % paints the screw up
          epoch
 %         w        
         miss        
