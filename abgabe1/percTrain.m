@@ -4,7 +4,7 @@ function [ w ] = percTrain( X,t,w,maxIts )
 % weight will be passed into the function. will be augmented weight
 % (1,0,0,...)
 
-gamma = 0.1; % learning rate
+gamma = 0.3; % learning rate
 for epoch=1:maxIts;
     miss = 0;% counts the miss classified samples per epoch
     for z=1:size(X,1)        
@@ -13,6 +13,8 @@ for epoch=1:maxIts;
             w = w + (gamma * X(z,:) * t(z))'; % adds 
         end
     end    
+    w
+    epoch
     if miss == 0
         break; % successfully classified every sample
     else        
