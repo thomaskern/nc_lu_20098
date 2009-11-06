@@ -4,11 +4,15 @@
 \usepackage{amsfonts}
 \usepackage{listings}
 \usepackage{mypriptrt} 
+% \usepackage[german]{babel}
+% \usepackage[T1]{fontenc}
+% \usepackage[latin1]{inputenc}
+\def\x#1#2{$\mathbb{#1}^#2$} 
+\def\n#1{\x#1}
 
 \begin{document}
 
 \title{Neural Computation LU - Aufgabenblock 1 - Gruppe 8}
-
 
 \author{Aitor Aldomà \and Thomas Kern \and Christian Weichselbaum}
         
@@ -20,17 +24,17 @@
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{ab1_1_1}
-	\caption{Datensatz generiert mit genData(50,2)}\label{fig:1}
+	\caption{Dataset generated with genData(50,2)}\label{fig:1}
 \end{figure}
 
 \subsection{Exercise 1.1.2}
 
-\textit{Untersuchen sie den Trainingsalgorithmus: Wieviele Iterationen werden benötigt, bis sich weight-Vektor $w$ im Fall von linear separierbaren Daten nicht mehr andert?}
+\textit{Untersuchen sie den Trainingsalgorithmus: Wieviele Iterationen werden benoetigt, bis sich weight-Vektor $w$ im Fall von linear separierbaren Daten nicht mehr andert?}
 \\
 It takes 9 epochs until the weight vector doesn't change. At this point, the algorithm stops because all of the data entries are successfully classified.
 \\
 \\
-\textit{Wie verändert sich der w während des Trainings?}
+\textit{Wie veraendert sich der w waehrend des Trainings?}
 \\
 The weight vector is changed at each iteration IFF the data entry is misclassified. If it is misclassified the product of gamma, data entry and target for the data entry is added to the current weight vector.
 \\
@@ -42,7 +46,8 @@ Gamma has a huge impact on the weight vector and number of epochs required to su
 \\
 \\
 
-\textit{Plotten Sie die Daten und Entscheidungsgrenze in $R^2$}
+
+\textit{Plotten Sie die Daten und Entscheidungsgrenze in \n{R2}}
 \\
 TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 \\
@@ -53,6 +58,17 @@ TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 Unfortunately, the algorithm runs until maxIts (variable setting the maximum of possible epochs) is reached. Since the data is not linearly seperable there will always be a data entry on the wrong side of the hyperplane and therefor rotating it will not result in a success. The algorithm would run indefinitely without maxIts. 
 
 \subsection{Exercise 1.1.3}
+\textit{Untersuchen Sie die Leistung des trainierten Perzeptrons auf dem Testset abhaengig von der Groesse des Trainingsets.}
+\\
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{ab1_1_3}
+	\caption{Our randomly generated dataset, genData(50,2)}\label{fig:1}
+\end{figure}
+
+\textit{Stellen Sie fuer einen Vergleich die wahren und die vom Perzeptron generierten Datenlabels graphisch dar.}
+\\
+This is answered/shown in 1.1.3.
 
 \section{Exercise 1.2}
 \subsection{Exercise 1.2.1}

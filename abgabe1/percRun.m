@@ -43,10 +43,10 @@ for i=0:total
     dat(i+1,3) = miss;
     dat(i+1,4) = 100 * miss / length(eval_data);
 end
-cnames = {'Teilung', 'Richtig', 'Falsch', 'Prozent falsch'};
+cnames = {'Split', 'Correct', 'False', 'Percentage False'};
 columnformat = {'bank', [], [], 'numeric'}; 
 
 f = figure('Position',[500 300 700 500]);
-table = uitable('Data',dat,'ColumnWidth',{75}, 'ColumnName', cnames, 'Parent',f, 'ColumnFormat', columnformat);
+table = uitable('Data',dat,'ColumnWidth',{125}, 'ColumnName', cnames, 'Parent',f, 'ColumnFormat', columnformat);
 set(table, 'Position', [0 200 702 200]);
 end
