@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+
+\usepackage{latexsym}
+\usepackage{mypriptrt}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{epic}
+
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}[example]{Theorem}
+
+
+%\textwidth 16cm
+%\textheight 23cm
+
+%% %-----------------------------------------------------------------------------
+%%  \newif\ifpdf
+%%  \ifx\pdfoutput\undefined
+%%      \pdffalse 
+%%  \else
+%%      \pdfoutput=1
+%%      \pdftrue   
+%%  \fi
+%%  \ifpdf
+%%    \usepackage[pdftex]{graphicx,color,epsfig}
+%%    \usepackage[colorlinks=true, citecolor=red, linkcolor=blue,
+%%                pagebackref=true]{hyperref}
+%%    \pdfcompresslevel=9 
+%%    \pdfinfo                          
+%%        { 
+%%          /Title     (A Graph-Based Representation for Spatiotemporal~Information in Cognitive~Vision) 
+%%          /Author    (Adrian Ion et.al.)                 
+%%          /Subject   (Irregular Graph Pyramid Image Segmentation) 
+%%          /Keywords  (image pyramid,MST)        
+%%        } 
+%%  \else  
+%%    \usepackage[dvips]{graphicx,color,epsfig} 
+%%  \fi
+
+%%\usepackage{latexsym,epsfig,subfigure,epic}
+%\usepackage{algorithmic,algorithm}  %for algorithm enviroment
+%%\usepackage{amssymb,amsmath,pifont} %extended math mode
+
+
+
+\title{TR Title\thanks{Supported by  ......}  } 
+\author{Me, Myself and ....}
+
+\abstract{
+  abstract abstract ...............
+}
+
+
+\reportnr{PRIP-TR-XYZ} 
+\email{ 
+  \begin{tabular}{l}
+    \{me\}@mail.com\\ 
+  \end{tabular}
+}
+
+%----------------------- Begin of Document -----------------------------------
+%-----------------------------------------------------------------------------
+\begin{document}
+%-----------------------------------------------------------------------------
+% decide which file extensions to use
+% Note: In order to convert eps-images to pdf-images, use the 
+%       tool "epstopdf" 
+%       If you included (bitmapped) postscript images before, convert them to
+%       the portable network graphic (.png) format 
+%-----------------------------------------------------------------------------
+%%  \ifpdf
+%%     \DeclareGraphicsExtensions{.pdf,.png}
+%%  \else
+%%     \DeclareGraphicsExtensions{.eps,.ps}   
+%%  \fi
+%-----------------------------------------------------------------------------
+
+
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+\maketitle
+
+%-----------------------------------------------------------------------------
+\section{Introduction}\label{sec:intro}
+
+\cite{PTR-Hubmer07a}
+
+
+%-----------------------------------------------------------------------------
+\bibliographystyle{abbrv} 
+\bibliography{bibliography.bib}
+
+
+\end{document}

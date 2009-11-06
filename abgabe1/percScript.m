@@ -1,3 +1,5 @@
 [data, target] = genData(100,2);
-paintTraining(data,target)
+[weight, adata] = augData(data, 0.2);
+paintTraining(adata,target);
+
 

@@ -1,0 +1,64 @@
+% titlepage.sty  27 Jan 85
+% modified for thesis by Alexander Vrchoticky  Apr.1989
+% modified for MARS reports by Werner Schuetz, July 1989
+%          (version 1.1 includes line above footnotes, Dec. 1989)
+% modified again for technical reports for PRIP, Alexander Vrchoticky, Feb 1991
+% modified for the a4wide layout and wider abstracts by J.P.Petrak, Feb 1991
+%
+\typeout{Titlepage for PRIP report. v0.1 J.P.Petrak 2/91}
+\def\email#1{\gdef\@email{#1}}
+\gdef\@email{}                          % Default is empty string
+\gdef\@reportnr{}                          % Default is empty string
+\gdef\@title{}                          % Default is empty string
+\gdef\@author{}                          % Default is empty string
+\def\reportnr#1{\gdef\@reportnr{#1}}    % must be supplied
+\def\abstract#1{\gdef\@abstract{#1}}    % must be supplied
+\def\note#1{\gdef\@note{#1}}
+\gdef\@note{}                           % Default is empty string
+\def\maketitle{\begin{titlepage}
+\let\footnotesize\small
+% \let\footnoterule\relax
+\setcounter{page}{0}
+\null
+\setlength{\unitlength}{1cm}
+\begin{picture}(18,10)(-1.2,+13) % absichtlich `zu kurz', sonst leerseite :-(
+        \put (-2,25.5)     { Technical Report }
+        \put (7.5,25.5)
+                {
+                \parbox[t]{9cm}
+                        {
+                        \renewcommand{\baselinestretch}{0.9}
+                        \scriptsize
+                        \renewcommand{\baselinestretch}{1}
+                        Pattern Recognition and Image Processing Group \\
+                        Institute of Computer Aided Automation \\
+                        Vienna University of Technology\\
+                        Favoritenstr. 9/183-2 \\
+                        A-1040 Vienna AUSTRIA \\
+                        \begin{tabular}[t]{@{} l l}
+                        Phone:&+43 (1) 58801-18351 \\
+                        Fax:  &+43 (1) 58801-18392 \\
+                        E-mail: & \@email\\
+                        URL: & http://www.prip.tuwien.ac.at/
+                        \end{tabular}
+                        }
+                }
+
+   \put (0.7,21.5)      {       \makebox(0,0)[l]{\@reportnr}                                            }
+   \put (11,21.5)     {       \makebox(0,0)[r]{\@date}                                                        }
+   \put (6,19.5)        {       \makebox(0,0)[c]{\Large \shortstack{\@title}}           }
+   \put (6,16.5)        {       \makebox(0,0)[c]{\large\sl \shortstack{\@author}}       }
+
+   \put (6,12.5)        {       \makebox(0,0)[c]{\bf Abstract}                                          }
+%  \put (-1,11.5)       {       \parbox[t]{14.5cm}{\@abstract}                                            }
+   \put (-2,11.5)       {       \parbox[t]{16.3cm}{\@abstract}                                            }
+
+\end{picture}
+\vfill
+\@thanks
+\vfil
+\null
+\end{titlepage}
+\setcounter{footnote}{0} \let\thanks\relax
+\gdef\@email{}\gdef\@thanks{}\gdef\@author{}\gdef\@title{}
+\gdef\@reportnr{}\gdef\@note{}\gdef\@abstract{}\let\maketitle\relax}
