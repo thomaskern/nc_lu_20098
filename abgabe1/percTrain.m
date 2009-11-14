@@ -1,4 +1,4 @@
-function [ w ] = percTrain( X,t,w,maxIts )
+function [ w ] = percTrain( X,t,w,maxIts, figure_id, figure_name )
 % trains the perceptron by adapting the weight
 % weight will be returned
 % weight will be passed into the function. will be augmented weight
@@ -13,12 +13,11 @@ for epoch=1:maxIts;
             w = w + (gamma * X(z,:) * t(z))'; % adds 
         end
     end    
-    w
-    epoch
+    
     if miss == 0
         break; % successfully classified every sample
     else        
-        paintTraining(X,t, w); % paints the screw up
+        paintTraining(X,t, w, figure_id, figure_name); % paints the screw up
     end
 end
 

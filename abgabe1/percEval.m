@@ -4,10 +4,10 @@ miss = 0;
 for i=1:length(eval_data)
  
   if perc(eval_data(i,1:size(eval_data,2)-1),w) ~= eval_data(i,size(eval_data,2))
-     display('MISS');
+%      display('MISS');
      miss = miss + 1;
   else
-     display('NO MISS');
+%      display('NO MISS');
  end
  
 end
