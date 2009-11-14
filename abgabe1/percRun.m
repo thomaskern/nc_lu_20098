@@ -34,6 +34,7 @@ for i=0:total
     if split < 0
         split = 0;
     end
+    
     [training_data, eval_data] = splitData(adata, split);
     [w] = percTrain(training_data(:,1:4),training_data(:,5),weight,100, figure_id + 1,'Aufgabe 1.1.2 - Perc Training File');
     miss = percEval(eval_data, w);
