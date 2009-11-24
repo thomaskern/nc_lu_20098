@@ -1,0 +1,4 @@
+clc;
+
+[data, target] = gendata(100,2);
+[weight, adata] = augData(data, 1)

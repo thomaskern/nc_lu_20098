@@ -15,12 +15,12 @@ for epoch=1:maxIts;
         end
     end    
     
-    
-    
+    if w_old == w
     if miss == 0
         break; % successfully classified every sample
     else        
         paintTraining(X,t, w, figure_id, figure_name); % paints the screw up
+        display(ep
     end
 end
 
