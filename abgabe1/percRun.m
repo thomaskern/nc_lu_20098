@@ -28,6 +28,7 @@ weight = weight(1:4,1);
 
 total = 5;
 dat = ones(total+1,4);
+figcount = 1;
 
 for i=0:total
     split = 0.9 - i/total;
@@ -36,8 +37,11 @@ for i=0:total
     end
     
     [training_data, eval_data] = splitData(adata, split);
-    [w] = percTrain(training_data(:,1:4),training_data(:,5),weight,100, figure_id + 1 + i,'Aufgabe 1.1.2 - Perc Training File');
+    [w] = percTrain(training_data(:,1:4),training_data(:,5),weight,100, figure_id + figcount,'Aufgabe 1.1.2 - Perc Training File');
+    figcount = figcount + 1;
     miss = percEval(eval_data, w);
+    percEval_Fin(eval_data, w, figure_id + figcount, 'Aufgabe 1.1.2 - Red cross lables mark where the perceptron classified wrong');
+    figcount = figcount + 1;
     dat(i+1,1) = split * 100; 
     dat(i+1,2) = length(eval_data) - miss;
     dat(i+1,3) = miss;
@@ -46,9 +50,12 @@ end
 cnames = {'Split', 'Correct', 'False', 'Percentage False'};
 columnformat = {'bank', [], [], 'numeric'}; 
 
-fig = figure(figure_id + total + 2);
+fig = figure(figure_id + figcount);
 set(fig, 'Position',[500 300 700 500]);
 set(fig, 'Name', 'Aufgabe 1.1.3 - Evaluation table');
 table = uitable('Data',dat,'ColumnWidth',{125}, 'ColumnName', cnames, 'Parent',fig, 'ColumnFormat', columnformat);
 set(table, 'Position', [0 200 702 200]);
+
+
+
 end

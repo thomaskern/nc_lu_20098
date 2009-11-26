@@ -54,8 +54,7 @@ The weight vector is changed at each iteration IFF the data entry is misclassifi
 \\
 The step width, gamma, did not significantly influence the numbers of epochs needed. On our randomly generated dataset we trained our perceptron with different gammas from 0.01 to 1, gradially increasing it by the value of 0.01 and stored the
 resulting number of epochs needed, each run. To acquire enough testdata we repeated this test with different randomly generated datasets 100 times. When performing a correlation test on the resulting pairs of data, its result leads to the conclusion
-that gamma doesn't correlate with the needed number of adjustments of the weight vector.\\
-The dataset has been created with gendata(100,2) and the resulting correlation coefficient between gamma and epoch number, was -0.0095. 
+that gamma doesn't correlate with the needed epoch. 
 \\
 \\
 
