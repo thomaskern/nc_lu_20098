@@ -1,4 +1,4 @@
-function [w] = percTrainExp( X,t,w,maxIts, figure_id, figure_name, gamma)
+function [en w] = percTrainExp( X,t,w,maxIts, figure_id, figure_name, gamma)
 % gamma is the learning rate
 % trains the perceptron by adapting the weight
 % weight will be returned
@@ -19,10 +19,10 @@ for epoch=1:maxIts;
     
     
     if miss == 0
-        display(sprintf('Epochs needed: %i',epoch));
+        en = epoch;
         break; % successfully classified every sample
     else        
-        paintTraining(X,t, w, figure_id, figure_name); % paints the screw up
+        %paintTraining(X,t, w, figure_id, figure_name); % paints the screw up
     end
 end
 
