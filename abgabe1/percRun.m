@@ -6,19 +6,19 @@ function [  ] = percRun( figure_id )
 
 
 % own random data
-% display('own random data');
-% [A,T] = genData(50,2);
-% [weight,adata] = augData(A,0.8);
-% [training_data, eval_data] = splitData(adata, 0.8);
-% [w] = percTrain(training_data,T,weight,100,figure_id,'Aufgabe 1.1.2 - Perc Training Random');
-% 
-% paintTraining(training_data, T, w, figure_id,'Aufgabe 1.1.2 - Perc Training Random');
-% ed = ones(length(eval_data),4);
-% 
-% for i=1:length(eval_data)
-%     ed(i,:) = [eval_data(i,:) T(i)];
-% end
-% percEval(ed, w);
+display('own random data');
+[A,T] = genData(50,2);
+[weight,adata] = augData(A,0.8);
+[training_data, eval_data] = splitData(adata, 0.8);
+[w] = percTrain(training_data,T,weight,100,figure_id,'Aufgabe 1.1.2 - Perc Training Random');
+
+paintTraining(training_data, T, w, figure_id,'Aufgabe 1.1.2 - Perc Training Random');
+ed = ones(length(eval_data),4);
+
+for i=1:length(eval_data)
+    ed(i,:) = [eval_data(i,:) T(i)];
+end
+percEval(ed, w);
 
 % text file data
 display('textfile data')
