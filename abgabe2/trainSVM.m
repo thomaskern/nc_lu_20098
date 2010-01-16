@@ -1,6 +1,4 @@
 function [ alpha ] = trainSVM( x, target )
-
-    target = target';
     
     num = size(x,1);
     
@@ -16,7 +14,5 @@ function [ alpha ] = trainSVM( x, target )
     ub = [gamma*ones(num,1)]; 
     [alpha,fvala] = quadprog(k,f,A,b,Aeq,beq,lb,ub);
     
-
-
 end
 
