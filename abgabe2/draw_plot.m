@@ -8,15 +8,15 @@ clf();
 hold on;
 
 for j = 1:length(data)
-    if target(j) == 1
-        plot(data(j,1), data(j,2),'ro');
-    else
-        plot(data(j,1), data(j,2),'g+');
+    color = 'ro';
+    if target(j) < 1
+        color = 'g+';        
     end
     alpha(j)
+    plot(data(j,1), data(j,2),color);
+    
     if alpha(j) > 0.01
-%         plot(data(j,1), data(j,2),'ro');
-        circle([data(j,1), data(j,2)], 1, 500, 'ro');
+        circle([data(j,1), data(j,2)], 1, 500, color);        
     end
 end
 grid;
