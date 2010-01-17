@@ -12,7 +12,7 @@ for j = 1:length(data)
     if target(j) < 1
         color = 'g+';        
     end
-    alpha(j)
+    
     plot(data(j,1), data(j,2),color);
     
     if alpha(j) > 0.01
