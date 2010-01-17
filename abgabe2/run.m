@@ -9,8 +9,8 @@ function [ ] = run( )
     
     weights = calculate_weights(x, target, alpha);
     
-    alpha
+%     alpha
 
-%     draw_plot(x, target);
+    draw_plot(x, target, alpha);
 end
 
