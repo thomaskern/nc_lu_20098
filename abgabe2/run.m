@@ -10,7 +10,10 @@ function [ ] = run( )
    weights = calculate_weights(x, target, alpha);
     
    bias = calc_bias(alpha, x,target);
-   draw_plot(x, target, alpha, weights, bias);
+%    draw_plot(x, target, alpha, weights, bias);
+   
+   [x2, target2] = genData(num,2);
+   predictSVM(alpha, x, target, x2(2,:))
 
 end
 

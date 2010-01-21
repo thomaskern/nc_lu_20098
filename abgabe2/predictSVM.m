@@ -1,9 +1,7 @@
-function [ y_new ] = predictSVM( alpha, X, t, x_new )
-%PREDICTSVM Summary of this function goes here
-%   Detailed explanation goes here
+function [ y_new ] = predictSVM( alpha, X, target, x_new )
 
-
-    y_new = dot(calculate_weights(X,t,alpha)',x_new) + bias;
+    bias = calc_bias(alpha, X,target);
+    y_new = sign(dot(calculate_weights(X,target,alpha)',x_new) + bias);
     
 end
 
