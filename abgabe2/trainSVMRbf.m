@@ -14,5 +14,6 @@ function [ alpha ] = trainSVMRbf( x, target )
     ub = [gamma*ones(num,1)]; 
     [alpha,fvala] = quadprog(k,f,A,b,Aeq,beq,lb,ub);
 
+    alpha
 end
 
