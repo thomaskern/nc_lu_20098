@@ -1,6 +1,5 @@
 function [ ] = run( )
 
-    clc;
     num = 10;
     [x, target] = genData(num,2);
     target = target';
@@ -14,6 +13,8 @@ function [ ] = run( )
    
    [x2, target2] = genData(num,2);
    predictSVM(alpha, x, target, x2(2,:))
+   
+   rbfkernel(x2(2,:),x2(3,:), 1)
 
 end
 

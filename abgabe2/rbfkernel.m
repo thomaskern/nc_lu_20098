@@ -1,6 +1,6 @@
 function [ k ] = rbfkernel( x1, x2, sigma )
-%RBFKERNEL Summary of this function goes here
-%   Detailed explanation goes here
+
+    k = exp(-norm(x1 - x2)^2/sigma^2);
 
 
 end
