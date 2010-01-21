@@ -36,7 +36,7 @@ Z = zeros(m+1,m+1);
 for i=1:m+1,
     x_new = [tx,repmat(ty(i),m+1,1)];
     for j = 1:1:size(x_new,1)
-        Z(j,i) = predictSVMRbf( alpha, data, target, x_new(j), sigma );
+        Z(j,i) = predictSVMRbfws( alpha, data, target, x_new(j), sigma );
     end;
 end;
  
