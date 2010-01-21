@@ -1,4 +1,4 @@
-function [ ] = draw_plot( data, target, alpha, w, bias )
+function [ ] = draw_plot_rbf( data, target, alpha, w, bias )
  
 fig = figure;
 set(fig, 'Name', 'Nice');
@@ -31,6 +31,5 @@ line(xaxis,hyperplane)
 hold off;
 drawnow(); % flushes event queque
  
- 
- 
 end
+

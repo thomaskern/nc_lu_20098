@@ -1,13 +1,11 @@
 function [ bias ] = calc_bias( alpha, X, t)
-%CALC_BIAS Summary of this function goes here
-%   Detailed explanation goes here
 c = 0;
 b = 0;
 w0 = calculate_weights(X,t,alpha);
 
 for j = 1:length(X)
     if alpha(j) > 0.01
-       b = b + ((1/t(j)) - dot(X(j)',w0));
+       b = b + ((1/t(j)) - dot(X(j,:)',w0));
        c = c + 1; 
     end
 end

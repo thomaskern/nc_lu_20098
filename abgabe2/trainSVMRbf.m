@@ -1,4 +1,4 @@
-function [ alpha ] = trainSVM( x, target )
+function [ alpha ] = trainSVMRbf( x, target )
     
     num = size(x,1);
     
@@ -13,5 +13,6 @@ function [ alpha ] = trainSVM( x, target )
     lb = [zeros(num,1)]; 
     ub = [gamma*ones(num,1)]; 
     [alpha,fvala] = quadprog(k,f,A,b,Aeq,beq,lb,ub);
-    
+
 end
+
