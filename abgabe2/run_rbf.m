@@ -5,17 +5,18 @@ function [ ] = run_rbf(  )
         closereq;
     end
 
+    C = 5;
     num = 12;
     [x, target] = genData(num,2);
     target = target';
     
-   alpha_rbf = trainSVMRbf(x,target);
+   alpha_rbf = trainSVMRbf(x,target, C);
     weights = calculate_weights(x, target, alpha_rbf);
     
    bias = calc_bias(alpha_rbf, x,target);
    
-   draw_plot_rbf(x,target,alpha_rbf,weights,bias);
-   [x3, target3] = genData(num,2);
+   
+   [x3, target3] = genDataRbf(num,2);
       
    c = 0;
    gama = 1000;
@@ -35,7 +36,7 @@ function [ ] = run_rbf(  )
    disp('Misclassified: ');
    disp(c);
    
-   
+   draw_plot_rbf(x,target,alpha_rbf,gama);
 
 end
 

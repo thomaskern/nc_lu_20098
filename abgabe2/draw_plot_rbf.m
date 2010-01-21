@@ -1,4 +1,4 @@
-function [ ] = draw_plot_rbf( data, target, alpha, w, bias )
+function [ ] = draw_plot_rbf( data, target, alpha, sigma )
  
 fig = figure;
 set(fig, 'Name', 'Nice');
@@ -22,11 +22,25 @@ end
 grid;
 axis equal;
  
-w = [bias, w];
+
 axis([(min(data(:,1)) - 1) (max(data(:,1)) + 1) (min(data(:,2)) - 1) (max(data(:,2)) + 1)]);
 xaxis = [(min(data(:,1)) - 2) (max(data(:,1)) + 2)];
-hyperplane = (-w(1) - w(2) .* xaxis) / w(3);
-line(xaxis,hyperplane)
+
+m = 100;
+myax = axis;
+
+tx = myax(1) + (myax(2)-myax(1))*(0:m)'/m;
+ty = myax(3) + (myax(4)-myax(3))*(0:m)'/m;
+
+Z = zeros(m+1,m+1);
+for i=1:m+1,
+    x_new = [tx,repmat(ty(i),m+1,1)];
+    for j = 1:1:size(x_new,1)
+        Z(j,i) = predictSVMRbf( alpha, data, target, x_new(j), sigma );
+    end;
+end;
+ 
+h=contour(tx,ty,Z',[0 0],'k-');
  
 hold off;
 drawnow(); % flushes event queque
