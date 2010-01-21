@@ -12,9 +12,11 @@ function [ ] = run( )
 %    draw_plot(x, target, alpha, weights, bias);
    
    [x2, target2] = genData(num,2);
-   predictSVM(alpha, x, target, x2(2,:))
+   predictSVM(alpha, x, target, x2(2,:));
    
-   rbfkernel(x2(2,:),x2(3,:), 1)
-
+   
+   
+   run_rbf;
+   
 end
 
