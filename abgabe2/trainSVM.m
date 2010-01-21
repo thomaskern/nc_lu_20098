@@ -12,7 +12,16 @@ function [ alpha ] = trainSVM( x, target )
     b = 0;
     lb = [zeros(num,1)]; 
     ub = [gamma*ones(num,1)]; 
-    [alpha,fvala] = quadprog(k,f,A,b,Aeq,beq,lb,ub);
+    ub
+    [alpha, val] = quadprog(k,f,A,b,Aeq,beq,lb,ub);
+    
+    alpha
+    val
+%     fvala
+%     muh
+%     bah
+%     foo.upper
+%     svm
     
 end
 

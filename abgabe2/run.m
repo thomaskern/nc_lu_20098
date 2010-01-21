@@ -9,16 +9,11 @@ function [ ] = run( )
     
     weights = calculate_weights(x, target, alpha);
     
-    prev = zeros(2,1);
-    
-     for k=1:10
-         prev = prev + ((x(k,:) * target(k)) * alpha(k)) * x';
-     end
-    
-    weights
-    x
-    weights'
-    x * weights'
+    %     
+%     weights
+%     x
+%     weights'
+%     x * weights'
     
      
     
