@@ -5,9 +5,9 @@ function [ ] = run( )
     [x, target] = genData(num,2);
     target = target';
     
-    alpha = trainSVM(x, target);
+%    alpha = trainSVM(x, target);
     
-    weights = calculate_weights(x, target, alpha);
+%    weights = calculate_weights(x, target, alpha);
     
     %     
 %     weights
@@ -19,10 +19,11 @@ function [ ] = run( )
     
 
     
-    dot(x,weights')
-    (diag(weights) * x')
+%     dot(x,weights')
+%     (diag(weights) * x')
 %     alpha
 
     draw_plot(x, target, alpha, weights);
+
 end
 

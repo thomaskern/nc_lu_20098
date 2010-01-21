@@ -2,7 +2,7 @@ function [ alpha ] = trainSVM( x, target )
     
     num = size(x,1);
     
-    xn = x.* (target*[1 1]); 
+    xn = x.* (target * [ 1 1 ]); 
     k= xn*xn'; 
     gamma =1;
     f= -ones(num,1); 
