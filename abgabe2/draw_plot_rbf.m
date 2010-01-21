@@ -40,7 +40,7 @@ for i=1:m+1,
     end;
 end;
  
-h=contour(tx,ty,Z',[0 0],'k-');
+h=contour(tx,ty,Z');
  
 hold off;
 drawnow(); % flushes event queque
