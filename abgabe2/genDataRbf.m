@@ -2,6 +2,7 @@ function [ x, target] = genDataRbf( num, d )
  
     [x,target] = genData(num,d);
     
+    target(num-5) = target(num-5)*-1;
     target(num-1) = target(1)*-1;
     target(num) = target(num)*-1;
     

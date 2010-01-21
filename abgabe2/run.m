@@ -18,5 +18,7 @@ function [ ] = run( )
    
    run_rbf;
    
+   svm_plot_data(x);
+   
 end
 

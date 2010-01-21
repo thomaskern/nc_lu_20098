@@ -3,37 +3,38 @@ function [ ] = run_rbf(  )
     for i=0:10
         closereq;
     end
+ sigma = 2;
+    C = 5;
+    num = 24;
+    [x, target] = genData(num,2);
+    target = target';
 
-%     C = 5;
-%     num = 24;
-%     [x, target] = genDataRbf(num,2);
-%     target = target';
+   alpha_rbf = trainSVMRbf(x,target, C);
+
+   alpha_rbf
+   weights = calculate_weights(x, target, alpha_rbf);
+    
+   bias = calc_bias(alpha_rbf, x,target);
+   
+   draw_plot_rbf(x,target,alpha_rbf,sigma);
+
+%  C = 5;
+
+%  num = 24;
+%  [x, target] = genDataRbf(num,2);
+%  target = target';
 % 
-%    alpha_rbf = trainSVMRbf(x,target, C);
+%  train_data = x(1:20,:);
+%  train_target = target(1:20,1);
+%  
+% alpha_rbf = trainSVMRbf(train_data,train_target, C);
 % 
-%    alpha_rbf
-%    weights = calculate_weights(x, target, alpha_rbf);
-%     
-%    bias = calc_bias(alpha_rbf, x,target);
-%    
-%    fig = draw_plot_rbf(x,target,alpha_rbf,weights,bias);
-
- C = 5;
- num = 24;
- [x, target] = genDataRbf(num,2);
- target = target';
-
- train_data = x(1:20,:);
- train_target = target(1:20,1);
- 
-alpha_rbf = trainSVMRbf(train_data,train_target, C);
-
-weights = calculate_weights(train_data, train_target, alpha_rbf);
- 
-bias = calc_bias(alpha_rbf, train_data,train_target);
-
-size(train_data)
-fig = draw_plot_rbf(train_data,train_target,alpha_rbf,weights,bias);
+% weights = calculate_weights(train_data, train_target, alpha_rbf);
+%  
+% bias = calc_bias(alpha_rbf, train_data,train_target);
+% 
+% size(train_data)
+% draw_plot_rbf(train_data,train_target,alpha_rbf, sigma);
 
 %    draw_plot_rbf(x,target,alpha_rbf,weights,bias);
       
@@ -54,5 +55,5 @@ fig = draw_plot_rbf(train_data,train_target,alpha_rbf,weights,bias);
 %    
 %    disp('Misclassified: ');
 %    disp(c);
-   
+
 end
