@@ -6,7 +6,7 @@ function [ ] = run_rbf(  )
  sigma = 2;
     C = 5;
     num = 24;
-    [x, target] = genData(num,2);
+    [x, target] = genDataRbf(num,2);
     target = target';
 
    alpha_rbf = trainSVMRbf(x,target, C);

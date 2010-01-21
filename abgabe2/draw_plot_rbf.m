@@ -34,10 +34,10 @@ tx = myax(1) + (myax(2)-myax(1))*(0:m)'/m;
 ty = myax(3) + (myax(4)-myax(3))*(0:m)'/m;
 
 Z = zeros(m+1,m+1);
-for i=1:m+1,
-    x_new = [tx,repmat(ty(i),m+1,1)];
-    for j = 1:1:size(x_new,1)
-        Z(j,i) = predictSVMRbfws( alpha, data, target, x_new(j), sigma );
+
+for i=1:1:m+1,
+    for j = 1:1:m+1
+        Z(j,i) = predictSVMRbfws( alpha, data, target, [tx(j), ty(i)], sigma );
     end;
 end;
  
