@@ -18,8 +18,10 @@ function [ ] = run_rbf(  )
    [x3, target3] = genData(num,2);
       
    c = 0;
+   gama = 1000;
+   
    for i=1:size(x3)
-       predicted = predictSVMRbf(alpha_rbf, x, target, x3(i,:), 2);
+       predicted = predictSVMRbf(alpha_rbf, x, target, x3(i,:), gama);
     if predicted == target3(i)
     else
         c = c + 1;
