@@ -5,5 +5,6 @@ function [ y_new ] = predictSVMRbfws( alpha, X, target, x_new, sigma )
    end
    
    y_new = c;
- 
+
 end
+

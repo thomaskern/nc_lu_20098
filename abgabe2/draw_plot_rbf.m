@@ -44,7 +44,7 @@ end;
 
 % ty
 % Z'
-h=contour(tx,ty,Z',[0,0]);
+h=contour(tx,ty,Z');
  
 hold off;
 drawnow(); % flushes event queque
