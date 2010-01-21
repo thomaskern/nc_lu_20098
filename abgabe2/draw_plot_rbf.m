@@ -1,9 +1,8 @@
-function [ ] = draw_plot_rbf( data, target, alpha, w, bias )
+function [ fig ] = draw_plot_rbf( data, target, alpha, w, bias )
  
 fig = figure;
 set(fig, 'Name', 'Nice');
  
-clf();
  
 hold on;
  
