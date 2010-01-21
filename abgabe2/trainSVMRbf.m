@@ -17,20 +17,21 @@ function [ alpha ] = trainSVMRbf( x, target )
 X = x;
 C = 10;
 y = target;
-num = size(X,2); 
+num = size(X,1); 
 
-H	= (X' * X) .* (y' * y); %+ epsilon*eye(num); 
-H
-f	= -ones(1,num); 
-A	= [-eye(num); eye(num)]; 
-b	= [zeros(num,1); 
-    C * ones(num,1)]; 
+xn = x.* (target * [ 1 1 ]); 
+H= xn*xn'; 
+% H = (X' * X) .* (y' * y); %+ epsilon*eye(num); 
+% H
+f = -ones(1,num); 
+A = [-eye(num); eye(num)]; 
+b = [zeros(num,1); C * ones(num,1)]; 
 D =y'; 
 e =0; 
 
 alpha = quadprog(H,f,A,b,D,e);
 
-% alpha
+alpha
 
 end
 
