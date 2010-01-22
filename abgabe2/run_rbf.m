@@ -11,9 +11,12 @@ function [ ] = run_rbf(  )
    weights = calculate_weights(x, target, alpha_rbf);
     
    bias = calc_bias(alpha_rbf, x,target);
+
+   bias
+   weights
    
-   draw_plot(x,target, alpha_rbf, weights, bias);
-   draw_plot_rbf(x,target,alpha_rbf,sigma);
+%    draw_plot(x,target, alpha_rbf, weights, bias);
+%    draw_plot_rbf(x,target,alpha_rbf,sigma);
 
 %  C = 5;
 
