@@ -1,9 +1,6 @@
 function [ ] = run_rbf(  )
-% closes all figures
-    for i=0:10
-        closereq;
-    end
- sigma = 2;
+    
+    sigma = 2;
     C = 5;
     num = 100;
     [x, target] = genDataRbf(num,2);
@@ -11,11 +8,11 @@ function [ ] = run_rbf(  )
 
    alpha_rbf = trainSVMRbf(x,target, C);
 
-   alpha_rbf
    weights = calculate_weights(x, target, alpha_rbf);
     
    bias = calc_bias(alpha_rbf, x,target);
    
+   draw_plot(x,target, alpha_rbf, weights, bias);
    draw_plot_rbf(x,target,alpha_rbf,sigma);
 
 %  C = 5;

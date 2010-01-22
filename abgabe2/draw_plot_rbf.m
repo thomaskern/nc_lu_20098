@@ -6,23 +6,23 @@ set(fig, 'Name', 'Nice');
  
 hold on;
  
-for j = 1:length(data)
-    color = 'ro';
-    if target(j) < 1
-        color = 'g+';        
-    end
-    
-    plot(data(j,1), data(j,2),color);
-    
-end
-
-%  
+% for j = 1:length(data)
+%     color = 'ro';
+%     if target(j) < 1
+%         color = 'g+';        
+%     end
+%     
+%     plot(data(j,1), data(j,2),color);
+%     
+% end
+% 
+% %  
 
 axis([(min(data(:,1)) - 1) (max(data(:,1)) + 1) (min(data(:,2)) - 1) (max(data(:,2)) + 1)]);
 xaxis = [(min(data(:,1)) - 2) (max(data(:,1)) + 2)];
 
 
-m = 100;
+m = 50;
 myax = axis;
 
 tx = myax(1) + (myax(2)-myax(1))*(0:m)'/m;
@@ -36,11 +36,14 @@ for i=1:1:m+1,
     end;
 end;
  
+Z'
 
 % ty
 % Z'
-h=contour(tx,ty,Z');
+[C,h] =contour(tx,ty,Z');
+ clabel(C,h);
  
+
 grid;
 hold off;
 drawnow(); % flushes event queque

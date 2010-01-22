@@ -1,4 +1,4 @@
-function [ ] = draw_plot( data, target, alpha, w, bias )
+function [ fig ] = draw_plot( data, target, alpha, w, bias )
  
 fig = figure;
 set(fig, 'Name', 'Nice');
