@@ -5,7 +5,7 @@ function [ ] = run_rbf(  )
     end
  sigma = 2;
     C = 5;
-    num = 24;
+    num = 100;
     [x, target] = genDataRbf(num,2);
     target = target';
 

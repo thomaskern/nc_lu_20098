@@ -14,19 +14,14 @@ for j = 1:length(data)
     
     plot(data(j,1), data(j,2),color);
     
-    if alpha(j) > 0.01
-        circle([data(j,1), data(j,2)], 1, 500, color);        
-    end
 end
-grid;
-axis equal;
+
 %  
 
-fig = figure;
 axis([(min(data(:,1)) - 1) (max(data(:,1)) + 1) (min(data(:,2)) - 1) (max(data(:,2)) + 1)]);
 xaxis = [(min(data(:,1)) - 2) (max(data(:,1)) + 2)];
 
-axis
+
 m = 100;
 myax = axis;
 
@@ -46,6 +41,7 @@ end;
 % Z'
 h=contour(tx,ty,Z');
  
+grid;
 hold off;
 drawnow(); % flushes event queque
  
